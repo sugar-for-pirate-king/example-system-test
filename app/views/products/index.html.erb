@@ -1,0 +1,7 @@
+<% flash.each do |key, val| %>
+  <p><%= val %></p>
+<% end %>
+
+<% @products.each do |product| %>
+  <li><%= product.name %> - <%= product.price %></li>
+<% end %>

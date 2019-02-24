@@ -10,7 +10,7 @@ RSpec.describe 'Create Product', type: :system do
       within '#product-form' do
         fill_in :product_name, with: 'Kaos'
         fill_in :product_price, with: '2000000'
-        click_button 'Sumbit'
+        click_button 'Submit'
       end
 
       expect(page).to have_content 'Product has been created'
