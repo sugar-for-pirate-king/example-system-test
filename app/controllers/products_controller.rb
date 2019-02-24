@@ -13,9 +13,12 @@ class ProductsController < ApplicationController
   def create
     build_product(product_params)
 
-    return unless @product.save
-
-    redirect_to products_path, notice: 'Product has been created'
+    if @product.save
+      redirect_to products_path, notice: 'Product has been created'
+    else
+      error_messages = @product.errors.full_messages.join(',')
+      redirect_to products_path, notice: error_messages
+    end
   end
 
   private

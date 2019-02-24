@@ -17,4 +17,34 @@ RSpec.describe 'Create Product', type: :system do
       expect(page).to have_text 'Kaos', '2000000'
     end
   end
+
+  context 'with invalid params' do
+    context 'without name' do
+      it 'should returns error' do
+        visit new_product_path
+
+        within '#product-form' do
+          fill_in :product_name, with: nil
+
+          click_button 'Submit'
+        end
+
+        expect(page).to have_text "Name can't be blank"
+      end
+    end
+
+    context 'without price' do
+      it 'should returns error' do
+        visit new_product_path
+
+        within '#product-form' do
+          fill_in :product_price, with: nil
+
+          click_button 'Submit'
+        end
+
+        expect(page).to have_text "Price can't be blank"
+      end
+    end
+  end
 end
