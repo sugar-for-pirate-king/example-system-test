@@ -1,14 +1,3 @@
 <div id="product-form">
-  <%= form_with model: @product, url: products_path, method: :post do |f| %>
-    <div>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </div>
-    <div>
-      <%= f.label :price %>
-      <%= f.text_field :price %>
-    </div>
-
-    <%= f.submit 'Submit' %>
-  <% end %>
+  <%= render 'form', product: @product %>
 </div>

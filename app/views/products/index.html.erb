@@ -1,7 +1,3 @@
-<% flash.each do |key, val| %>
-  <p><%= val %></p>
-<% end %>
+<%= render 'shared/message' %>
 
-<% @products.each do |product| %>
-  <li><%= product.name %> - <%= product.price %></li>
-<% end %>
+<%= render @products %>
