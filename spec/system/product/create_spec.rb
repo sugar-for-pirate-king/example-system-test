@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Create Product', type: :system do
   context 'with valid params' do
-    it "should create product" do
+    it 'should create product' do
       visit new_product_path
 
       within '#product-form' do
@@ -13,9 +13,8 @@ RSpec.describe 'Create Product', type: :system do
         click_button 'Submit'
       end
 
-      expect(page).to have_content 'Product has been created'
-      expect(page).to have_content 'Kaos'
-      expect(page).to have_content '2000000'
+      expect(page).to have_text 'Product has been created'
+      expect(page).to have_text 'Kaos', '2000000'
     end
   end
 end
